@@ -7,7 +7,7 @@ enum AniProps { opacity, translateX }
 class SlideAnimations extends StatelessWidget {
   final double delay;
   final Widget child;
-  const SlideAnimations({Key key, @required this.delay, @required this.child})
+  const SlideAnimations({Key? key, required this.delay, required this.child})
       : super(key: key);
 
   @override

@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 class DetailsPage extends StatefulWidget {
   final String image;
   final String tag;
-  final String name;
+  final String? name;
 
   const DetailsPage(
-      {Key key, @required this.image, @required this.tag, this.name})
+      {Key? key, required this.image, required this.tag, this.name})
       : super(key: key);
 
   @override
@@ -99,13 +99,16 @@ class _DetailsPageState extends State<DetailsPage> {
                                 children: [
                                   FadeAnimation(
                                     delay: .8,
-                                    child: Text(
-                                      widget.name,
+                                    child: widget.name != null ? Text(
+                                      widget.name!,
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 40),
-                                    ),
+                                    ) : Text('No Name', style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 40),)
                                   ),
                                   SizedBox(
                                     height: 20,
@@ -329,7 +332,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                                   MaterialPageRoute(
                                                       builder: (context) =>
                                                           Cart(
-                                                            name: widget.name,
+                                                            name: widget.name ?? "No Name",
                                                             image: widget.image,
                                                             tag: widget.tag,
                                                           )));

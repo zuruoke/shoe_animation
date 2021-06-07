@@ -5,10 +5,10 @@ import 'animations/slideAnimation.dart';
 class Cart extends StatefulWidget {
   final String image;
   final String name;
-  final String price;
-  final String tag;
+  final String? price;
+  final String? tag;
 
-  const Cart({Key key, this.image, this.name, this.price, this.tag})
+  const Cart({Key? key, required this.image, required this.name, this.price, this.tag})
       : super(key: key);
   @override
   _CartState createState() => _CartState();
@@ -52,7 +52,7 @@ class _CartState extends State<Cart> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Hero(
-                      tag: widget.tag,
+                      tag: widget.tag ?? 'No tag',
                       child: Container(
                         height: 150,
                         width: 150,

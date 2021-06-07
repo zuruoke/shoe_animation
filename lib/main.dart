@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class MyHomePage extends StatelessWidget {
   List<Map<String, String>> dataList = [
     {
@@ -182,9 +183,9 @@ class MyHomePage extends StatelessWidget {
                   itemCount: dataList.length,
                   itemBuilder: (context, index) {
                     return buidItem(
-                        image: dataList[index]['imageLink'],
-                        tag: dataList[index]['tag'],
-                        name: dataList[index]['name'],
+                        image: dataList[index]['imageLink']!,
+                        tag: dataList[index]['tag']!,
+                        name: dataList[index]['name']!,
                         context: context);
                   }),
             ),
@@ -197,9 +198,9 @@ class MyHomePage extends StatelessWidget {
 
   Widget buidItem(
       {String image = "assets/images/one.jpg",
-      @required String tag,
-      @required String name,
-      @required BuildContext context}) {
+      required String tag,
+      required String name,
+      required BuildContext context}) {
     return Material(
       child: Hero(
           tag: tag,
